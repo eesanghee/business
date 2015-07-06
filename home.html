@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css">
+        <title> Decadent Desserts </title>
+
+		<style>
+
+			.fa-bars {
+				display: none;
+				float: right;
+				cursor: pointer;
+				margin: 15px;
+			}
+
+			nav {
+				width: 100%;
+				background-color: #D1F0FF;
+				position: absolute;
+				float: left;
+			}
+
+			nav ul {
+				display: block;
+				float: right;
+
+			}
+
+			nav ul li {
+				display: inline-block;
+				padding: 10px;
+			}
+
+			a:link, a:visited {
+				text-decoration: none;
+				color: #204081;
+			}
+
+			a:hover {
+				background-color: #FFFFFF;
+			}
+
+			@media (max-width: 400px) {
+				.fa-bars {
+					display: block;
+				}
+				ul {
+					display: none;
+					width: 100%;
+					border-top: 1px solid black;
+				}
+
+				ul li {
+					width: 100%;
+					border-bottom: 1px solid black;
+				}
+			}
+
+
+			.cover {
+				width: 100%;
+			}
+
+			body {
+				font-family: rockwell;
+				color: #204081;
+			}
+		
+			 h2 {
+			 	text-align: center;
+			 	font-weight: bold;
+			 	color: #204081;
+			 }
+
+			.photos {
+				float: left;
+				display: inline-block;
+				padding-left: 150px;
+			}
+
+			
+			.imgs {
+				width: 320px;
+			}
+			.content {
+				width: 50%;
+				padding: 15px;
+				margin: 0 auto;
+				background: rgba(255,255,255, .8);
+				display: inline-block;
+			}
+/*			Smaller Desktops*/
+			@media (max-width: 1224px) {
+				.photos {
+					padding-left: 50px;
+					padding-top: 50px;
+				}
+				
+			}
+/*			IPads*/
+			@media (max-width: 800px) {
+				.photos {
+					padding-left: 20px;
+					padding-top: 50px;
+				}
+				.imgs {
+					width: 250px;
+				}
+			}
+/*
+			Phone*/
+			@media (max-width: 600px) {
+				.photos {
+					display: none;
+				}
+				.content {
+					width: 90%;
+				}
+			}
+
+		</style>
+
+	</head>
+
+	<body>
+		<header><img src = "background5.jpg" class = "cover"></header>
+		<nav>
+			<i class = "fa fa-bars"></i>
+			<ul>
+				<li><a href="home.html">Home</a></li>
+				<li><a href="classes.html">Classes</a></li>
+				<li><a href="desserts.html">Desserts</a></li>
+				<li><a href="contact.html">Contact</a></li>
+			</ul>
+		</nav>
+
+		<br><br><br>
+		<div class = "photos">
+			<img id="thisImg" alt="img" src="macarons.jpg" class ="imgs">
+		</div>
+		<div class = "content"> 
+			<h2>Decadent Desserts</h2> 
+			<br>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tempor cursus nisl vel pharetra. Aliquam eleifend tellus vel aliquam ullamcorper. Maecenas sollicitudin eget nunc vitae hendrerit. Praesent vitae congue justo, in dapibus nulla. Sed lobortis augue nisi, vel tincidunt nisi placerat id. Nunc eleifend lobortis metus, nec accumsan purus dictum non. Cras ut cursus felis, at tincidunt elit. Nullam non imperdiet leo, eget auctor nisl. Proin nec luctus velit, ac facilisis nulla. Sed rutrum mattis gravida. In efficitur quis purus quis blandit. Donec et venenatis mi.</p>
+			<br>
+
+			<h2> Our Mission </h2><br>
+			<p>Nullam sit amet fringilla nisl. Nunc ullamcorper pulvinar neque id vehicula. Proin vel libero condimentum, maximus arcu a, pulvinar ante. Etiam vel imperdiet mi. Etiam ullamcorper sollicitudin eleifend. Etiam diam lorem, ultricies nec lacus ac, tincidunt fringilla augue. Mauris nec elit ipsum. Phasellus a molestie orci, eu congue magna. Vivamus at rutrum felis. Pellentesque sed felis pharetra, rutrum nisl et, vehicula nisi.</p><br>
+		</div>
+
+		<script>
+			$(".fa-bars").click(function() {
+				if ($("ul").hasClass("open")) {
+					$("ul").slideUp();
+					$("ul").removeClass("open");
+				} else {
+					$("ul").slideDown();
+					$("ul").addClass("open");
+          }});
+
+    $(function(){
+        //prepare Your data array with img urls
+        var dataArray=new Array();
+        dataArray[0]="macarons.jpg";
+        dataArray[1]="flourlesscake.jpg";
+        dataArray[2]="nectarinepavolas.jpg";
+        dataArray[3]="pannacotta.jpg";
+        //start with id=0 after 3 seconds
+        var thisId=0;
+        window.setInterval(function(){
+            $('#thisImg').attr('src',dataArray[thisId]);
+            thisId++; //increment data array id
+            if (thisId==4) thisId=0; //repeat from start
+        },3000);        
+    });
+		</script>
+	</body>
+</html>
